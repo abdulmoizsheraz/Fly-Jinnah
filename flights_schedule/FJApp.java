@@ -4,7 +4,6 @@ public class FJApp {
     public static void main(String[] args) {
         Airport islamabadNorthAirport = new Airport("Islamabad", AirportType.NORTH, 5);
         Airport islamabadSouthAirport = new Airport("Islamabad", AirportType.SOUTH, 5);
-
         Airplane airplane1 = new Airplane("A1", islamabadNorthAirport, FlightType.LOCAL, 50, 2, "09:00", "11:00");
         Airplane airplane2 = new Airplane("A2", islamabadNorthAirport, FlightType.LOCAL, 50, 2, "12:00", "14:00");
         Airplane airplane3 = new Airplane("A3", islamabadNorthAirport, FlightType.INTERNATIONAL, 50, 5, "15:00", "20:00");

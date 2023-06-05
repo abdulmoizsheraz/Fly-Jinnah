@@ -3,23 +3,12 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Signup {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public Signup (String name,String email,String username,String password) {
 
         System.out.println("Signup and Registration Program");
         System.out.println("-------------------------------");
 
-        System.out.print("Enter your name: ");
-        String name = scanner.nextLine();
-
-        System.out.print("Enter your email: ");
-        String email = scanner.nextLine();
-
-        System.out.print("Enter your username: ");
-        String username = scanner.nextLine();
-
-        System.out.print("Enter your password: ");
-        String password = scanner.nextLine();
+       
 
         // Create a comma-separated string of user data
         String userData = name + "," + email + "," + username + "," + password;
@@ -32,8 +21,14 @@ public class Signup {
             writer.close();
             System.out.println("Registration successful. User data saved to users.csv");
         } catch (IOException e) {
+
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
         }
+
+
+    }
+    public static void main(String[] args) {
+        Signup u1=new Signup("moiz","moiz77131@gmail.com","moiz77131","1234?");
     }
 }
