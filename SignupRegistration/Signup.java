@@ -8,8 +8,6 @@ public class Signup {
         System.out.println("Signup and Registration Program");
         System.out.println("-------------------------------");
 
-       
-
         // Create a comma-separated string of user data
         String userData = name + "," + email + "," + username + "," + password;
 

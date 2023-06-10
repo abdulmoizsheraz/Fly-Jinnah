@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
 public class Login {
-    private static boolean checkCredentials(String username, String password) {
+   static boolean checkCredentials(String username, String password) {
         try {
             FileReader fileReader = new FileReader("users.csv");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
