@@ -3,13 +3,13 @@ package flights_schedule;
 public class Airplane {
     private String airplaneID;
     private Airport airport;
-    private FlightType flightType;
+    private String flightType;
     private int seatsAvailable;
     private int hoursRequired;
     private String arrivalTime;
     private String departureTime;
 
-    public Airplane(String airplaneID, Airport airport, FlightType flightType, int seatsAvailable,
+    public Airplane(String airplaneID, Airport airport, String flightType, int seatsAvailable,
                     int hoursRequired, String arrivalTime, String departureTime) {
         this.airplaneID = airplaneID;
         this.airport = airport;
@@ -28,7 +28,7 @@ public class Airplane {
         return airport;
     }
 
-    public FlightType getFlightType() {
+    public String getFlightType() {
         return flightType;
     }
 
@@ -52,4 +52,3 @@ public class Airplane {
         return departureTime;
     }
 }
-

@@ -35,6 +35,7 @@ public class FlightSchedule {
         for (Airplane flight : flights) {
             System.out.println("Flight ID: " + flight.getAirplaneID());
             System.out.println("City: " + flight.getAirport().getCityName());
+            System.out.println("Airport Type: " + flight.getAirport().getAirportType());
             System.out.println("Flight Type: " + flight.getFlightType());
             System.out.println("Seats Available: " + flight.getSeatsAvailable());
             System.out.println("Hours Required: " + flight.getHoursRequired());

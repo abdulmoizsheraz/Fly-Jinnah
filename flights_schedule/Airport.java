@@ -1,20 +1,12 @@
 package flights_schedule;
 
-enum AirportType {
-    NORTH, SOUTH
-}
-
-enum FlightType {
-    LOCAL, INTERNATIONAL
-}
-
 public class Airport {
     private String cityName;
-    private AirportType airportType;
+    private String airportType;
     private int maxPlanesAllowed;
     private int currentPlanes;
 
-    public Airport(String cityName, AirportType airportType, int maxPlanesAllowed) {
+    public Airport(String cityName, String airportType, int maxPlanesAllowed) {
         this.cityName = cityName;
         this.airportType = airportType;
         this.maxPlanesAllowed = maxPlanesAllowed;
@@ -25,7 +17,7 @@ public class Airport {
         return cityName;
     }
 
-    public AirportType getAirportType() {
+    public String getAirportType() {
         return airportType;
     }
 
@@ -41,4 +33,3 @@ public class Airport {
         this.currentPlanes = currentPlanes;
     }
 }
-
