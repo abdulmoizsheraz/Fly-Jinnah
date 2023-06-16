@@ -1,19 +1,18 @@
 import java.util.Scanner;
 
 import flights_schedule.FlightSchedule;
-
+import Booking.Booking;
 public class Main {
     private static boolean loggedInUser;
 
     static void ShowMenu(String loggedInUser) {
-        System.out.println("\n-----------Fly Jinnah Airline Systems------------");
+        System.out.println("\n___________________________Fly Jinnah Airline Systems___________________________");
         System.out.println("Welcome, " + loggedInUser + "!");
         System.out.println("1. View  Available flights");
         System.out.println("2. Book a flight");
         System.out.println("3. Cancel a booking");
-        System.out.println("4. Logout");
+        System.out.println("4. Search for Flights");
         System.out.print("Enter your choice: ");
-
     }
 
     public static void main(String[] args) {
@@ -21,7 +20,7 @@ public class Main {
         boolean exit = false;
         while (!exit) {
             if (loggedInUser == false) {
-                System.out.println("===== Welcome to Fly Jinnah =====");
+                System.out.println("___________________________ Thanks for Landing on Fly Jinnah Systems____________________");
                 System.out.println("1. Login");
                 System.out.println("2. Sign up");
                 System.out.println("3. Exit");
@@ -46,13 +45,16 @@ public class Main {
         f1.displaySchedule();
                 break;
                 case 2:
-                // bookFlight();
+              // Booking
                 break;
                 case 3:
                 // cancelBooking();
                 break;
                 case 4:
-                // loggedInUser = null;
+                System.out.println("Enter the City Name for which you want to Search");
+                String city=scanner.next();
+                FlightSchedule fS=new FlightSchedule();
+           fS.printAvailableFlights(city);
                 break;
                 default:
                 System.out.println("Invalid choice. Please try again.");

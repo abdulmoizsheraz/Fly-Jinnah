@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FlightSchedule {
-    private List<Airplane> flights;
+   public static List<Airplane> flights;
 
     public FlightSchedule() {
         this.flights = new ArrayList<>();
@@ -26,23 +26,29 @@ public class FlightSchedule {
     }
 
 
-    // public void addFlight(Airplane airplane) {
-    //     flights.add(airplane);
-    // }
+
 
     public void removeFlight(Airplane airplane) {
         flights.remove(airplane);
     }
 
-    public List<Airplane> searchFlights(String keyword) {
-        List<Airplane> matchingFlights = new ArrayList<>();
-        for (Airplane flight : flights) {
-            if (flight.getAirplaneID().contains(keyword) || flight.getAirport().getCityName().contains(keyword)) {
-                matchingFlights.add(flight);
-            }
+   public void printAvailableFlights(String keyword) {
+    boolean foundMatchingFlights = false;
+
+    for (Airplane flight : flights) {
+        if (flight.getAirplaneID().contains(keyword) || flight.getAirport().getCityName().contains(keyword)) {
+            System.out.println("Flight ID: " + flight.getAirplaneID());
+            System.out.println("City: " + flight.getAirport().getCityName());
+            System.out.println("Available Seats: " + flight.getSeatsAvailable());
+            System.out.println("--------------------------");
+            foundMatchingFlights = true;
         }
-        return matchingFlights;
     }
+
+    if (!foundMatchingFlights) {
+        System.out.println("No available flights matching the keyword: " + keyword);
+    }
+}
 
     public void updateAvailableSeats(Airplane airplane, int numSeats) {
         airplane.setSeatsAvailable(numSeats);
