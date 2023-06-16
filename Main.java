@@ -8,7 +8,7 @@ public class Main {
     static void ShowMenu(String loggedInUser) {
         System.out.println("\n-----------Fly Jinnah Airline Systems------------");
         System.out.println("Welcome, " + loggedInUser + "!");
-        System.out.println("1. View flights");
+        System.out.println("1. View  Available flights");
         System.out.println("2. Book a flight");
         System.out.println("3. Cancel a booking");
         System.out.println("4. Logout");
@@ -42,7 +42,8 @@ public class Main {
                                choice = scanner.nextInt();
                 switch (choice) {
                 case 1:
-            //  ViewFlights
+            FlightSchedule f1=new FlightSchedule();
+        f1.displaySchedule();
                 break;
                 case 2:
                 // bookFlight();
