@@ -36,6 +36,7 @@ public class Airplane {
         return seatsAvailable;
     }
 
+
     public void setSeatsAvailable(int seatsAvailable) {
         this.seatsAvailable = seatsAvailable;
     }

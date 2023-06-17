@@ -23,7 +23,9 @@ public class Main {
                 System.out.println("___________________________ Thanks for Landing on Fly Jinnah Systems____________________");
                 System.out.println("1. Login");
                 System.out.println("2. Sign up");
-                System.out.println("3. Exit");
+                System.out.println("3.View Available Flights");
+                System.out.println("4. Search for Availble Flights");
+                System.out.println("5. Exit");
                 System.out.print("Enter your choice: ");
 
                 int choice = scanner.nextInt();
@@ -45,7 +47,8 @@ public class Main {
         f1.displaySchedule();
                 break;
                 case 2:
-              // Booking
+            //   Booking b1=new Booking("A4","ISLAMABAD");
+           Booking b1=new Booking("A6", "ISLAMABAD");
                 break;
                 case 3:
                 // cancelBooking();
@@ -79,7 +82,17 @@ public class Main {
                         String password = scanner.nextLine();
                         Signup user = new Signup(name, email, username, password);
                         break;
-                    case 3:
+                        case 3:
+     FlightSchedule f2=new FlightSchedule();
+        f2.displaySchedule();
+                        break;
+                        case 4:
+  System.out.println("Enter the City Name for which you want to Search");
+                String city=scanner.next();
+                FlightSchedule fS1=new FlightSchedule();
+           fS1.printAvailableFlights(city);
+                        break;
+                    case 5:
                         exit = true;
                         break;
                     default:
