@@ -1,5 +1,11 @@
 package flights_schedule;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Airplane {
     private String airplaneID;
     private Airport airport;
@@ -37,8 +43,27 @@ public class Airplane {
     }
 
 
-    public void setSeatsAvailable(int seatsAvailable) {
+public void setSeatsAvailable(int seatsAvailable,String AirplaneID) {
         this.seatsAvailable = seatsAvailable;
+        this.airplaneID=AirplaneID;
+           try (BufferedReader reader = new BufferedReader(new FileReader("Flights.csv"))) {
+            String line;
+            List<String> seats = new ArrayList<>();
+
+            while ((line = reader.readLine()) != null) {
+                String[] SeatsAvailable = line.split(",");
+                String id = SeatsAvailable[0].trim();
+                String seat = SeatsAvailable[1].trim();
+
+                       if (id.equalsIgnoreCase(AirplaneID)) {
+                 SeatsAvailable[1]=String.valueOf(seatsAvailable);
+                    break;
+                }
+
+            }}catch (IOException e) {
+            System.out.println("Error reading CSV file: " + e.getMessage());
+        }
+
     }
 
     public int getHoursRequired() {

@@ -47,8 +47,7 @@ public class Main {
         f1.displaySchedule();
                 break;
                 case 2:
-            //   Booking b1=new Booking("A4","ISLAMABAD");
-           Booking b1=new Booking("A6", "ISLAMABAD");
+              Booking b1=new Booking("A3","ISLAMABAD");
                 break;
                 case 3:
                 // cancelBooking();
