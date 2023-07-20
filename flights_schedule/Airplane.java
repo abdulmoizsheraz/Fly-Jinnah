@@ -1,9 +1,12 @@
 package flights_schedule;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Airplane {
@@ -44,27 +47,42 @@ public class Airplane {
 
 
 public void setSeatsAvailable(int seatsAvailable,String AirplaneID) {
-        this.seatsAvailable = seatsAvailable;
-        this.airplaneID=AirplaneID;
-           try (BufferedReader reader = new BufferedReader(new FileReader("Flights.csv"))) {
+           
+        List<List<String>> flightsData = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(new FileReader("flights.csv"))) {
             String line;
-            List<String> seats = new ArrayList<>();
-
-            while ((line = reader.readLine()) != null) {
-                String[] SeatsAvailable = line.split(",");
-                String id = SeatsAvailable[0].trim();
-                String seat = SeatsAvailable[1].trim();
-
-                       if (id.equalsIgnoreCase(AirplaneID)) {
-                 SeatsAvailable[1]=String.valueOf(seatsAvailable);
-                    break;
-                }
-
-            }}catch (IOException e) {
-            System.out.println("Error reading CSV file: " + e.getMessage());
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                flightsData.add(Arrays.asList(values));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
         }
 
+        for (List<String> row : flightsData) {
+            if (row.get(0).trim().equals(AirplaneID)) {
+                row.set(1, Integer.toString(seatsAvailable));
+                break;
+            }
+        }
+
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("flights.csv"))) {
+            for (List<String> row : flightsData) {
+                String line = String.join(",", row);
+                bw.write(line);
+                bw.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println("Seats for flight ID " + AirplaneID + " updated to " + seatsAvailable);
     }
+
+        
+
+    
 
     public int getHoursRequired() {
         return hoursRequired;

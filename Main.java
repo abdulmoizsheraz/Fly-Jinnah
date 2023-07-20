@@ -47,7 +47,12 @@ public class Main {
         f1.displaySchedule();
                 break;
                 case 2:
-              Booking b1=new Booking("A3","ISLAMABAD");
+                Scanner in=new Scanner(System.in);
+                System.out.println("Please Enter the Id of the flight you want to book");
+                String id=in.next();
+                System.out.println("Please Enter the City Name");
+                String cityname=in.next();
+              Booking b1=new Booking(id,cityname);
                 break;
                 case 3:
                 // cancelBooking();
